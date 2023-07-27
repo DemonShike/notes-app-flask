@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block styles %}
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static', filename='css/register-login.css')}}"
+/>
+{% endblock styles %}
+
+{% block content %}
+
+
+<form method="POST" action="" class="form edit-notes">
+    {{ ckeditor.load() }}
+    <label for="titulo" class="edit-label">Titulo</label>
+    <input type="text" name="titulo" class="title" value=" {% if notas %}{{notas.titulo}}{% endif %}"/>
+    
+    {{ form.hidden_tag()}}
+    <label for="{{ form.contenido.id}}" class="edit-label">{{ form.contenido.label.text}}</label>
+    {{ form.contenido }}
+    <input class="btnsave" type="submit" value="Guardar"/>
+</form>
+{% endblock content %}

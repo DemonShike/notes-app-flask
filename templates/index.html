@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+            <p class="error">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+      
+          <h1>{% if not user %}
+            La mejor aplicacion para tus notas
+          
+          {% else %}
+          
+          Hola!!
+          {{user.username}}
+          {% endif %}
+        </h1>
+    
+      <section>
+
+        {% if user %}
+          <form  class="form-notes" action="{{ url_for('search') }}" method="GET">
+            
+            <div id="box-bar"  class="box-bar" >
+            <input type="text" name="q" placeholder="Buscar...">
+            <button  class="btn submit" type="submit"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
+          </form>
+        {% endif %}
+        <div class="column">
+          {% if  user %}
+
+  
+              {% for columna in columnas %}
+                    <div class="note-box">
+                      <h2>{{ columna.titulo }}</h2>
+                      {{ columna.contenido|safe }}
+                      <div class="div-delete">
+                        <a href="{{ url_for('editar_nota', notaid = columna.id)}}">Editar</a>
+                        <a href="{{ url_for('delete', notaid = columna.id)}}">Eliminar</a>
+                      </div>
+                    </div>
+              {% endfor %}
+              
+
+              </div>
+           
+          {% else %}
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              <div class="note-box ejemplo">
+                <h2>Soy una nota de ejemplo</h2>
+                <p>Soy una nota de ejemplo de lo que seri auna nota de contenido</p>
+                <a href="#">Editar</a>
+              </div>
+              {% endif %}
+          </div>
+                  
+                
+      </section>
+            
+    
+
+{% endblock content %}

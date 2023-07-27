@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+    {% block content %}
+        
+      <form class="form-notes" action="{{ url_for('search') }}" method="GET">
+        <div class="box-bar">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button class="btn submit" type="submit"><ion-icon name="search-outline"></ion-icon></button>
+        </div>
+      </form>
+        <div class="column">
+        {% for columna in columnas %}
+        <div class="note-box">
+            <h2>{{ columna.titulo }}</h2>
+            {{ columna.contenido|safe }}
+            <div class="div-delete">
+                <a href="{{ url_for('editar_nota', notaid = columna.id)}}">Editar</a>
+                <a href="{{ url_for('delete', notaid = columna.id)}}">Eliminar</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}

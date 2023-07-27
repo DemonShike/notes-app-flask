@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block styles %}
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static', filename='css/register-login.css')}}"
+/>
+{% endblock styles %}
+
+
+{% block content %}
+    <h2>Registrarse</h2>
+    <form method="POST" action="" class="form">
+        
+
+        {% for error in registro.errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+       
+        <div class="input-container">
+            <label for="{{registro.username.id}}" id="soymy-input">{{registro.username.label.text}}</label>
+            {{registro.username(placeholder="Ingresa tu nombre de usuario")}}
+            
+            {% if registro.email.errors %}
+            {% for error in registro.email.errors %}
+            <span>{{error}}</span>
+            {% endfor %}
+            {% endif %}
+            {{registro.email.label}}
+            {{registro.email}}
+            <label for="{{registro.password.id}}" id="soypassword">{{registro.password.label.text}}</label>
+            <input type="password" id="{{registro.password.id}}" name="{{registro.password.name}}" placeholder="{{registro.password.render_kw.placeholder}}">
+            {% for error in registro.password.errors %}
+                {{error}}
+            {% endfor %}
+            
+            {{registro.hidden_tag()}} <!--csrf token  en casos raros puede no funcionar entonces es mejor usar esto-->
+            
+           
+        </div>
+        <span id="togglePassword" class="togglePassword">Mostrar contraseña</span>
+        <div class="text-send">
+            <a href="{{url_for('acceder')}}">Tienes una cuenta?</a>
+            {{registro.submit}}
+        </div>
+    <div>
+    </form>
+{% endblock content %}

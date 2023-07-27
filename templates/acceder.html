@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block styles %}
+<link
+rel="stylesheet"
+type="text/css"
+href="{{ url_for('static', filename='css/register-login.css')}}"
+/>
+{% endblock styles %}
+
+
+{% block content %}
+    <h2>Acceder</h2>
+    <form action=""  method="POST" class="form">
+            {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+            <p class="error">{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+            {% if login.errors %}
+                {% for error in login.errors  %}
+                    <p>Hubo un error en {{error}}</p>
+                {% endfor %}
+            {% endif %}
+        <div class="input-container">
+        {% for logi in login %}
+            {% if logi != login.csrf_token and logi != login.submit%}
+                <label for="{{logi.id}}"  class="" id="soy{{logi.id}}">{{logi.label.text}}</label>
+                {% if logi.type == 'PasswordField' %}
+                    <input type="password" id="{{ logi.id }}" name="{{logi.name}}" value="" placeholder="{{ logi.render_kw.placeholder }}">
+                    {% for error in login.password.errors  %}
+                    <p>Hubo un error en {{error}}</p>
+                {% endfor %} 
+                {% else %}
+                
+                {{logi}}
+                {% for error in login.email.errors  %}
+                    <p>Hubo un error en {{error}}</p>
+                {% endfor %}  
+                {% endif %}
+                
+            {% endif %}
+                {{login.hidden_tag()}}
+        
+            
+        {% endfor %}
+        <span id="togglePassword" class="togglePassword">Mostrar contraseña</span>
+            <div class="text-send">
+                <a href="{{url_for('registrarse')}}">No tienes una cuenta?</a>
+                {{login.submit}}
+            </div>
+        <div>
+    </form>
+{% endblock content %}

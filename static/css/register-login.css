@@ -1,0 +1,147 @@
+
+h2{
+    text-align: center;
+    font-size: 2.7em;
+    margin: 1em auto;
+    color: #f3f3f3;
+}
+
+.form{
+    box-sizing: border-box;
+    border: 1px solid #d15b71;
+    border-radius: 15px ;
+    background: #d15b71;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 90%;
+    padding: 1.8em 0.9em;
+    color: rgba(255, 255, 255, 0.178);
+    font-size: 1.2em;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.input-container input[type=text]::placeholder,input[type=password]::placeholder{
+    color: white;
+    opacity: 0;
+    position: relative;
+    right: 100%;
+
+  }
+
+.input-container input[type=text]:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    background-color: red;
+    -webkit-text-fill-color: red;
+}
+.input-container input[type=text]:focus::placeholder,input[type=password]:focus::placeholder{
+    right:0%;
+    opacity: 0.3;
+    transition: all 300ms ease-in-out;
+ 
+  }
+
+.input-container input[type=text],input[type=password]{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    
+    font-size: 1.3em;
+    border-bottom: 2px solid white;
+    margin-bottom: 1em;
+    padding: 0.3em;
+    color: white;
+}
+
+.colors{
+    transition: all 300ms linear;
+    color: white;
+}
+
+.text-send{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+.text-send a{
+    text-decoration: none;
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 0.8em;
+}
+.text-send a:hover{
+    color: blue;
+}
+
+.text-send input, .btnsave{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #e2bec5;
+    border-radius: 20px;
+    color: #d15b71;
+    font-size: 1em;
+    padding: 0.5em;
+    
+}
+.text-send input:hover{
+    background-color: #fadae1;
+    cursor: pointer;
+}
+
+
+.togglePassword{
+    cursor: pointer;
+    color: white;
+    user-select: none;
+}
+
+.edit-label{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-size: 1.4em;
+    color: white;
+    font-family: 'Montserrat';
+    margin: 0.3em;
+    text-transform: capitalize;
+}
+
+.title{
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.2em;
+    color: #d15b71;
+    max-width: 293px;
+    width: 90%;
+}
+
+.edit-notes{
+    margin-top: 100px;
+    max-width: 1000px;
+}
+
+.btnsave{
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.btnsave:hover{
+    background-color: #fc7a92;
+    transition:all 300ms linear;
+}
+.cke_resizer_ltr {
+    resize: none;
+    display: none;
+    
+}
