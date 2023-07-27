@@ -27,7 +27,7 @@ href="{{ url_for('static', filename='css/register-login.css')}}"
             <span>{{error}}</span>
             {% endfor %}
             {% endif %}
-            {{registro.email.label}}
+            <label id="labelEmail" for="{{registro.email.id}}">{{registro.email.label.text}}</label>
             {{registro.email}}
             <label for="{{registro.password.id}}" id="soypassword">{{registro.password.label.text}}</label>
             <input type="password" id="{{registro.password.id}}" name="{{registro.password.name}}" placeholder="{{registro.password.render_kw.placeholder}}">

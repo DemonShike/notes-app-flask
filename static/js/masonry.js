@@ -12,6 +12,10 @@ function toggleSearch() {
 const inputElement = document.getElementById('my-input');
 const labelElement = document.getElementById('soymy-input');
 
+const inputElementEmail = document.getElementById('email')
+const LabelElementEmail = document.getElementById('labelEmail')
+
+
 
 const inputElementTwo = document.getElementById('password');
 const labelElementTwo = document.getElementById('soypassword')
@@ -41,10 +45,17 @@ inputElement.addEventListener('click', function() {
 
 });
 
+inputElementEmail.addEventListener('click', function(){
+  LabelElementEmail.classList.toggle("colors")
+  if (labelElement.classList.contains("colors")){
+    labelElement.classList.toggle("colors")}
+});
+
+
 inputElementTwo.addEventListener('click', function() {
   labelElementTwo.classList.toggle("colors")
-  if (labelElementTwo.classList.contains("colors")) {
-    labelElement.classList.toggle("colors")
+  if (LabelElementEmail.classList.contains("colors")) {
+    LabelElementEmail.classList.toggle("colors")
   }
     
   });
