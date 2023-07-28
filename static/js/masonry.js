@@ -8,17 +8,38 @@ function toggleSearch() {
   }
 }
 
-
+// Variables  del form register/login
 const inputElement = document.getElementById('my-input');
 const labelElement = document.getElementById('soymy-input');
-
 const inputElementEmail = document.getElementById('email')
 const LabelElementEmail = document.getElementById('labelEmail')
-
-
-
 const inputElementTwo = document.getElementById('password');
 const labelElementTwo = document.getElementById('soypassword')
+
+
+// Logica que cambia los colores de los label
+inputElement.addEventListener('click', function() {
+  labelElement.classList.toggle("colors")
+  if (labelElement.classList.contains("colors") && labelElementTwo.classList.contains("colors")) {
+    labelElementTwo.classList.toggle("colors")
+  }
+
+});
+
+inputElementEmail.addEventListener('click', function(){
+  LabelElementEmail.classList.toggle("colors")
+  if (labelElement.classList.contains("colors")){
+    labelElement.classList.toggle("colors")}
+});
+
+inputElementTwo.addEventListener('click', function() {
+  labelElementTwo.classList.toggle("colors")
+  if (LabelElementEmail.classList.contains("colors")) {
+    LabelElementEmail.classList.toggle("colors")
+  }
+    
+  });
+
 
 
 /*
@@ -37,28 +58,7 @@ inputElementTwo.addEventListener('click', function() {
 });
 */
 
-inputElement.addEventListener('click', function() {
-  labelElement.classList.toggle("colors")
-  if (labelElement.classList.contains("colors") && labelElementTwo.classList.contains("colors")) {
-    labelElementTwo.classList.toggle("colors")
-  }
-
-});
-
-inputElementEmail.addEventListener('click', function(){
-  LabelElementEmail.classList.toggle("colors")
-  if (labelElement.classList.contains("colors")){
-    labelElement.classList.toggle("colors")}
-});
-
-
-inputElementTwo.addEventListener('click', function() {
-  labelElementTwo.classList.toggle("colors")
-  if (LabelElementEmail.classList.contains("colors")) {
-    LabelElementEmail.classList.toggle("colors")
-  }
-    
-  });
+// Script que cambia el tipo de la etiqueta password y el texto del boton que lo cambia
 
 const mostrar = document.getElementById('togglePassword');
 const password = document.getElementById('password')

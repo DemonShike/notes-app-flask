@@ -12,10 +12,10 @@ href="{{ url_for('static', filename='css/register-login.css')}}"
 
 
 <form method="POST" action="" class="form edit-notes">
-    {{ ckeditor.load() }}
+    {{ ckeditor.load() }} <!--Cargando ckeditor-->
     <label for="titulo" class="edit-label">Titulo</label>
-    <input type="text" name="titulo" class="title" value=" {% if notas %}{{notas.titulo}}{% endif %}"/>
-    
+    <input type="text" name="titulo" class="title" value=" {% if notas %}{{notas.titulo}}{% endif %}"/><!--cargamos los datos de la nota en el value si es necesario-->
+    <!--ckeditor campos-->
     {{ form.hidden_tag()}}
     <label for="{{ form.contenido.id}}" class="edit-label">{{ form.contenido.label.text}}</label>
     {{ form.contenido }}

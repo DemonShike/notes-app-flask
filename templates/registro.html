@@ -15,11 +15,11 @@ href="{{ url_for('static', filename='css/register-login.css')}}"
         
 
         {% for error in registro.errors %}
-        <li>{{error}}</li>
+        <li>{{error}}</li> <!-- Recorriend o errores -->
         {% endfor %}
        
         <div class="input-container">
-            <label for="{{registro.username.id}}" id="soymy-input">{{registro.username.label.text}}</label>
+            <label for="{{registro.username.id}}" id="soymy-input">{{registro.username.label.text}}</label> <!-- Input de registro "desarmado" Esto es para podeer asignarle un id al label para js-->
             {{registro.username(placeholder="Ingresa tu nombre de usuario")}}
             
             {% if registro.email.errors %}

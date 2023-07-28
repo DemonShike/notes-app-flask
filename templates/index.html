@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %} <!-- Mensajes de flash-->
       {% if messages %}
         {% for message in messages %}
             <p class="error">{{message}}</p>
@@ -38,11 +38,14 @@
               {% for columna in columnas %}
                     <div class="note-box">
                       <h2>{{ columna.titulo }}</h2>
+                      
                       {{ columna.contenido|safe }}
                       <div class="div-delete">
                         <a href="{{ url_for('editar_nota', notaid = columna.id)}}">Editar</a>
                         <a href="{{ url_for('delete', notaid = columna.id)}}">Eliminar</a>
+                       
                       </div>
+                      <span>Nota de {{columna.usuario.username}}</span> <!--relacion inversa hecha desde models-->
                     </div>
               {% endfor %}
               

@@ -5,7 +5,7 @@ from wtforms.validators import InputRequired, Email, Length, Regexp,DataRequired
 from email_validator import validate_email, EmailNotValidError
 
 
-
+#formularios de flask hechos con flaskwtf y ckeditor ademas de los wtforms
 
 class MyForm(FlaskForm):
     contenido = CKEditorField('contenido')
@@ -17,6 +17,6 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Registrarse')
 
 class LoginForm(FlaskForm):
-    email = StringField('Email',id='my-input',render_kw={'placeholder':"Ingresa tu Email"},validators=[InputRequired(),Email('El email no es correecto')])
+    email = StringField('Email',id='my-input',render_kw={'placeholder':"Ingresa tu Email"},validators=[InputRequired(),Email('El email no es correecto')])#render_kw es para agregar atributos al label
     password = PasswordField('Password',render_kw={'placeholder':"Ingresa tu contraseña"},validators=[DataRequired('Debes rellenar el campo contraseña'), Length(min=6)])
     submit = SubmitField('Acceder')

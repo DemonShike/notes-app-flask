@@ -12,7 +12,7 @@ href="{{ url_for('static', filename='css/register-login.css')}}"
 {% block content %}
     <h2>Acceder</h2>
     <form action=""  method="POST" class="form">
-            {% with messages = get_flashed_messages() %}
+      {% with messages = get_flashed_messages() %} <!-- Mostrando mensajes flask-->
       {% if messages %}
         {% for message in messages %}
             <p class="error">{{message}}</p>
@@ -20,14 +20,14 @@ href="{{ url_for('static', filename='css/register-login.css')}}"
       {% endif %}
     {% endwith %}
 
-            {% if login.errors %}
+            {% if login.errors %}<!-- Variable que comprueba si hay mensaje de errores-->
                 {% for error in login.errors  %}
                     <p>Hubo un error en {{error}}</p>
                 {% endfor %}
             {% endif %}
         <div class="input-container">
-        {% for logi in login %}
-            {% if logi != login.csrf_token and logi != login.submit%}
+        {% for logi in login %}<!-- Recorro los formularios de login -->
+            {% if logi != login.csrf_token and logi != login.submit%} <!-- Recorro los campos form menos los ultimos 2 -->
                 <label for="{{logi.id}}"  class="" id="soy{{logi.id}}">{{logi.label.text}}</label>
                 {% if logi.type == 'PasswordField' %}
                     <input type="password" id="{{ logi.id }}" name="{{logi.name}}" value="" placeholder="{{ logi.render_kw.placeholder }}">
@@ -43,7 +43,7 @@ href="{{ url_for('static', filename='css/register-login.css')}}"
                 {% endif %}
                 
             {% endif %}
-                {{login.hidden_tag()}}
+                {{login.hidden_tag()}} <!-- Aqui cargo los tags o forms que son invisibles y necesarios-->
         
             
         {% endfor %}
